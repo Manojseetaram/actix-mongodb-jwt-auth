@@ -22,14 +22,14 @@ pub struct AuthRequest {
     pub name : Option<String>
 }
 #[derive( Debug , Serialize , Deserialize)]
-pub struct Claim{
+pub struct Claims{
     pub sub : String,
     pub exp : usize,
 }
-impl Claim {
+impl Claims {
      fn new(user_id : String , days : i64)-> Self{
         let exp = (Utc::now() + Duration::days(days)).timestamp() as usize;
-        Claim { sub: user_id, exp }
+        Claims { sub: user_id, exp }
      }
 }
 
