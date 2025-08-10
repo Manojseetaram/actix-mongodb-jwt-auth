@@ -4,3 +4,14 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+actix-web = "4.11.0"
+bcrypt = "0.17.0"
+bson = "2.15.0"
+dotenv = "0.15.0"
+env_logger = "0.11.8"
+jsonwebtoken = "9.3.1"
+log = "0.4.27"
+mongodb = { version = "3.2.4", features = ["rustls-tls", "sync"] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.142"
+uuid = { version = "1.17.0", features = ["v4"] }
