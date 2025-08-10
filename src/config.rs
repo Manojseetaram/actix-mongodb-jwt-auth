@@ -6,5 +6,5 @@ pub fn load_config(){
 
 }
 pub fn get_env(key : &str)-> String{
-   env::var(key).unwrap_or_else(|_| panic!(" {:?} must be set in env " , key))
+  env::var(key).unwrap_or_else(|_|panic!("{:?} must add the .env" , key))
 }
