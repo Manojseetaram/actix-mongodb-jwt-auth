@@ -32,7 +32,7 @@ async fn main() -> std::io::Result<()> {
           .route("/register",web::post().to(register))
           .route("/login", web::post().to(login))
      })
-     .bind(bind_address)
+     .bind(bind_address).expect("Server not ruuning")
      .run()
      .await
 

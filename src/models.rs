@@ -1,6 +1,10 @@
-use actix_web::cookie::time::Duration;
+// use actix_web::cookie::time::Duration;
+// use bson::oid::ObjectId;
+// use chrono::{Utc , Duration};
+// use serde::{Deserialize, Serialize};
+use actix_web::cookie::time::Duration as CookieDuration; // for cookie expiry
 use bson::oid::ObjectId;
-use chrono::{Utc , Duration};
+use chrono::{Utc, Duration as ChronoDuration}; // for JWT expiry
 use serde::{Deserialize, Serialize};
 
 
@@ -27,9 +31,11 @@ pub struct Claims{
     pub exp : usize,
 }
 impl Claims {
-     fn new(user_id : String , days : i64)-> Self{
-        let exp = (Utc::now() + Duration::days(days)).timestamp() as usize;
+    pub fn new(user_id: String, days: i64) -> Self {
+        let exp = (Utc::now() + ChronoDuration::days(days)).timestamp() as usize;
         Claims { sub: user_id, exp }
-     }
+    }
 }
+
+
 
